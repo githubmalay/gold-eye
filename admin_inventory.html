@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management - EYEWEAR</title>
+    <link rel="stylesheet" href="admin_style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Inventory Management - EYEWEAR</h1>
+    </header>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <ul>
+            <li><a href="admin_dashboard.html">Dashboard</a></li>
+            <li><a href="admin_product.html">Products</a></li>
+            <li><a href="admin_order.html">Orders</a></li>
+            <li><a href="admin_customer.html">Customers</a></li>
+            <li><a href="admin_inventory.html">inventory</a></li>
+            <li><a href="admin_analysis.html">Analytics</a></li>
+            <!-- <li><a href="#">Settings</a></li> -->
+            <li><a href="admin login.html">Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+        <div class="inventory-form">
+            <h2>Add New Product</h2>
+            <form id="add-product-form">
+                <input type="text" name="product_name" placeholder="Product Name" required>
+                <input type="text" name="product_description" placeholder="Product Description" required>
+                <input type="number" name="product_price" placeholder="Product Price" required>
+                <input type="number" name="product_quantity" placeholder="Product Quantity" required>
+                <button type="submit">Add Product</button>
+            </form>
+        </div>
+
+        <h2>Product Inventory</h2>
+        <ul class="product-list" id="product-list">
+            <!-- Product items will be added dynamically here -->
+        </ul>
+    </div>
+
+    <script>
+        // Dummy product data (replace with actual data from backend)
+        const products = [
+            { id: 1, name: "Vincent Chase", description: "High-quality glasses for crystal-clear vision.", price: 50, quantity: 100 },
+            { id: 2, name: "Sunglasses", description: "High-quality glasses for crystal-clear vision.", price: 30, quantity: 80 },
+            { id: 3, name: "Vincent Chase", description: "High-quality glasses for crystal-clear vision.", price: 30, quantity: 120 }
+        ];
+
+        // Function to render product list
+        function renderProductList() {
+            const productList = document.getElementById("product-list");
+            productList.innerHTML = "";
+
+            products.forEach(product => {
+                const li = document.createElement("li");
+                li.innerHTML = `
+                    <div class="product-info">
+                        <h3>${product.name}</h3>
+                        <p>Description: ${product.description}</p>
+                        <p>Price: ₹${product.price}</p>
+                        <p>Quantity: ${product.quantity}</p>
+                    </div>
+                    <div class="product-actions">
+                        <button onclick="editProduct(${product.id})">Edit</button>
+                        <button onclick="removeProduct(${product.id})">Delete</button>
+                    </div>
+                `;
+                productList.appendChild(li);
+            });
+        }
+
+        // Function to add a new product
+        function addProduct(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            const productData = Object.fromEntries(formData.entries());
+            productData.id = products.length + 1; // Generate unique ID (replace with backend ID generation)
+            products.push(productData);
+            renderProductList();
+            form.reset();
+        }
+
+        // Function to remove a product
+        function removeProduct(productId) {
+            products.splice(productId - 1, 1); // Assuming ID is 1-based index
+            renderProductList();
+        }
+
+        // Initialize product list
+        renderProductList();
+
+        // Add event listener to form
+        document.getElementById("add-product-form").addEventListener("submit", addProduct);
+    </script>
+</body>
+</html>

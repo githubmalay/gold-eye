@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Search Bar in Navbar</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Eyewear</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+                <form class="d-flex ms-auto">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+<!-- Jumbotron -->
+<div class="jumbotron">
+    <h1 class="display-4">Eyewear</h1>
+    <p class="lead">Your Online Eyewear Store</p>
+    <p class="lead" id="welcomeMessage" style="display: none;">Welcome, User!</p>
+</div>
+
+<!-- Product Section -->
+<div class="container mt-5" id="Products">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card product-card">
+                <img src="https://static5.lenskart.com/media/catalog/product/pro/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//j/i/black-full-rim-aviator-john-jacobs-tr-flex-jj-e14418-c1-eyeglasses_g_7226_04_25_23.jpg" class="card-img-top product-image" alt="Product Image">
+                <div class="card-body product-details">
+                    <h5 class="card-title product-title">Vincent Chase</h5>
+                    <p class="card-text product-description">High-quality lens for crystal-clear vision.</p>
+                    <p class="product-price">₹199</p>
+                    <a href="add-to-cart.html">
+                        <button class="btn btn-primary">Add to cart
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card product-card">
+                <img src="https://static5.lenskart.com/media/catalog/product/pro/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//j/o/john-jacobs-jj-s10242-light-sky-blue-c2-wayfarer-sunglasses_john-jacobs-jj-s10242-light-sky-blue-c2-wayfarer-sunglasses_blue-c2-wayfarer-sungla.jpg" class="card-img-top product-image" alt="Product Image">
+                <div class="card-body product-details">
+                    <h5 class="card-title product-title">Huster</h5>
+                    <p class="card-text product-description">High-quality lens for crystal-clear vision.</p>
+                    <p class="product-price">₹199</p>
+                    <a href="add-to-cart.html">
+                    <button class="btn btn-primary">Add to Cart</button></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card product-card">
+                <img src="https://static5.lenskart.com/media/catalog/product/pro/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//v/i/vincent-chase-vc-e16696-c1-eyeglasses_img_9055_image_pla_04_01_2024.jpg" class="card-img-top product-image" alt="Product Image">
+                <div class="card-body product-details">
+                    <h5 class="card-title product-title">Vincent Chase</h5>
+                    <p class="card-text product-description">High-quality lens for crystal-clear vision.</p>
+                    <p class="product-price">₹199</p>
+                    <button class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <!-- Add more product cards as needed -->
+    </div>
+</div>
+
+<!-- Footer Section -->
+<footer class="bg-dark text-white text-center py-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h5>Contact Us</h5>
+                <p>Email: info@Eyewear.com</p>
+                <p>Phone: +1 (555) 123-4567</p>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <h5>Follow Us</h5>
+                <a href="#" class="text-white">Facebook</a> |
+                <a href="#" class="text-white">Twitter</a> |
+                <a href="#" class="text-white">Instagram</a>
+            </div>
+           
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap JS and Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Custom JavaScript -->
+<script src="script.js"></script>
+</body>
+
+</html>

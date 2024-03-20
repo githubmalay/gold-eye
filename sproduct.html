@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eyewear</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">EYEWEAR</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart.html">Cart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Jumbotron -->
+    <div class="jumbotron">
+        <h1 class="display-4">Eyewear</h1>
+        <p class="lead">Your Online Eyewear Store</p>
+        <p class="lead" id="welcomeMessage" style="display: none;">Welcome, User!</p>
+    </div>
+
+    <section id="product-detail" class="product-card">
+        <div class="single-pro-image">
+            <img src="p1.webp" width="100%" id="MainImg" alt="">
+
+            <div class="small-img-group">
+                <div class="small-img-col">
+                    <img src="p1.webp" width="100%" class="SmallImg" alt="">
+                </div>
+                <div class="small-img-col">
+                    <img src="p1.1.webp" width="100%" class="SmallImg" alt="">
+                </div>
+                <div class="small-img-col">
+                    <img src="p1.2.jpg" width="100%" class="SmallImg" alt="">
+                </div>
+                <div class="small-img-col">
+                    <img src="p1.3.jpg" width="100%" class="SmallImg" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="single-pro-detail">
+            <!-- <h6>Home / </h6> -->
+            <h4>Vincent Chase</h4>
+            <h2>₹1499</h2>
+            <select>
+                <option>Select size</option>
+                <option>XL</option>
+                <option>XXL</option>
+                <option>Small</option>
+                <option>Large</option>
+            </select>
+
+            <input type="number" value="1">
+            <!-- <button class="normal">Add to cart</button> -->
+            <a href="add-to-cart.html">
+            <button type="button" class="btn btn-primary">Add to Cart</button></a>
+
+            <h4>Product Detail</h4>
+            <span>Silver Full Rim Aviator</span>
+        </div>
+    </section>
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <p>Email: info@Eyewear.com</p>
+                    <p>Phone: +1 (555) 123-4567</p>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <h5>Follow Us</h5>
+                    <a href="#" class="text-white">Facebook</a> |
+                    <a href="#" class="text-white">Twitter</a> |
+                    <a href="#" class="text-white">Instagram</a>
+                </div>
+               
+            </div>
+        </div>
+    </footer><!-- Bootstrap JS and jQuery (Make sure to include them for Bootstrap functionality) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

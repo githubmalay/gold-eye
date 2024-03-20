@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Management - EYEWEAR</title>
+    <link rel="stylesheet" href="admin_style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Customer Management - EYEWEAR</h1>
+    </header>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+    
+        <ul> 
+            <li><a href="admin_dashboard.html">Dashboard</a></li>
+            <li><a href="admin_product.html">Products</a></li>
+            <li><a href="admin_order.html">Orders</a></li>
+            <li><a href="admin_customer.html">Customers</a></li>
+            <li><a href="admin_inventory.html">inventory</a></li>
+            <li><a href="admin_analysis.html">Analytics</a></li>
+            <!-- <li><a href="#">Settings</a></li> -->
+            <li><a href="admin login.html">Logout</a></li>
+
+        </ul>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+        <div class="filter-container">
+            <select id="filter-by-membership">
+                <option value="all">All Customers</option>
+                <option value="basic">Basic Members</option>
+                <option value="premium">Premium Members</option>
+            </select>
+        </div>
+
+        <ul class="customer-list" id="customer-list">
+            <!-- Customer items will be added dynamically here -->
+        </ul>
+    </div>
+
+    <script>
+        // Dummy customer data (replace with actual data from backend)
+        const customers = [
+            { id: 1, name: "John Doe", email: "john@example.com", phone: "123-456-7890", address: "123 Main St, City, Country", membership: "basic" },
+            { id: 2, name: "Jane Smith", email: "jane@example.com", phone: "987-654-3210", address: "456 Elm St, Town, Country", membership: "premium" },
+            { id: 3, name: "Alice Johnson", email: "alice@example.com", phone: "456-789-0123", address: "789 Oak St, Village, Country", membership: "basic" }
+        ];
+
+        // Function to render customer list
+        function renderCustomerList() {
+            const filterValue = document.getElementById("filter-by-membership").value;
+            const customerList = document.getElementById("customer-list");
+            customerList.innerHTML = "";
+
+            customers.forEach(customer => {
+                if (filterValue === "all" || customer.membership === filterValue) {
+                    const li = document.createElement("li");
+                    li.innerHTML = `
+                        <div class="customer-info">
+                            <h3>${customer.name}</h3>
+                            <p>Email: ${customer.email}</p>
+                            <p>Phone: ${customer.phone}</p>
+                            <p>Address: ${customer.address}</p>
+                            <p>Membership: ${customer.membership}</p>
+                        </div>
+                        <div class="customer-actions">
+                            <button onclick="editCustomer(${customer.id})">Edit</button>
+                            <button onclick="removeCustomer(${customer.id})">Delete</button>
+                        </div>
+                    `;
+                    customerList.appendChild(li);
+                }
+            });
+        }
+
+        // Function to filter customers by membership
+        document.getElementById("filter-by-membership").addEventListener("change", renderCustomerList);
+
+        // Initialize customer list
+        renderCustomerList();
+    </script>
+</body>
+</html>

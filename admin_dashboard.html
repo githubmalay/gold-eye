@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EYEWEAR Admin Dashboard</title>
+    <link rel="stylesheet" href="admin_style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Admin Dashboard</h1>
+        <!-- <button id="logoutBtn">Logout</button> -->
+    </header>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <ul>
+            <li><a href="admin_dashboard.html">Dashboard</a></li>
+            <li><a href="admin_product.html">Products</a></li>
+            <li><a href="admin_order.html">Orders</a></li>
+            <li><a href="admin_customer.html">Customers</a></li>
+            <li><a href="admin_inventory.html">inventory</a></li>
+            <li><a href="admin_analysis.html">Analytics</a></li>
+            <!-- <li><a href="#">Settings</a></li> -->
+            <li><a href="admin login.html">Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+        <div class="widget">
+            <h3>Visitors Today</h3>
+            <p>No. of visitors who visited the website today: <strong>150</strong></p>
+        </div>
+
+        <div class="widget">
+            <h3>Orders</h3>
+            <p>No. of orders completed: <strong>85</strong></p>
+            <p>No. of orders pending: <strong>15</strong></p>
+        </div>
+
+        <div class="widget">
+            <h3>Customers</h3>
+            <p>No. of registered customers: <strong>500</strong></p>
+            <p>No. of new customers today: <strong>20</strong></p>
+        </div>
+
+        <div class="widget">
+            <h3>Products</h3>
+            <p>No. of products available: <strong>1000</strong></p>
+            <p>No. of products out of stock: <strong>50</strong></p>
+        </div>
+
+        <div class="widget">
+            <h3>Revenue</h3>
+            <p>Total revenue generated: <strong>₹50,000</strong></p>
+            <p>Today's revenue: <strong>₹2,000</strong></p>
+        </div>
+
+        <!-- Add more widgets as needed -->
+
+        <a href="#" class="button">View More</a>
+    </div>
+    <script>
+        // Function to handle logout
+        function logout() {
+            // Clear any authentication tokens or session data
+            // For example, you can clear localStorage or sessionStorage
+            localStorage.removeItem("authToken"); // Assuming you're using localStorage for authentication
+            // Redirect to the login page
+            window.location.href = "admin login.html"; // Replace with the actual URL of your login page
+        }
+
+        // Add event listener to logout button
+        document.getElementById("logoutBtn").addEventListener("click", logout);
+    </script>
+</body>
+</html>

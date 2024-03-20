@@ -1,2 +1,2 @@
-# eyes-ecom.
-code use html and css
+# eyewear-
+just for college purpose

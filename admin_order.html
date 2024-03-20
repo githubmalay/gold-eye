@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Management - EYEWEAR</title>
+    <link rel="stylesheet" href="admin_style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Order Management - EYEWEAR</h1>
+    </header>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <ul>
+            <li><a href="admin_dashboard.html">Dashboard</a></li>
+            <li><a href="admin_product.html">Products</a></li>
+            <li><a href="admin_order.html">Orders</a></li>
+            <li><a href="admin_customer.html">Customers</a></li>
+            <li><a href="admin_inventory.html">inventory</a></li>
+            <li><a href="admin_analysis.html">Analytics</a></li>
+            <!-- <li><a href="#">Settings</a></li> -->
+            <li><a href="admin login.html">Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+        <!-- <div class="order-form"> -->
+            <!-- <h2>Add New Order</h2> -->
+            <!-- <form id="add-order-form">
+                <input type="text" name="customer_name" placeholder="Customer Name" required>
+                <input type="text" name="customer_email" placeholder="Customer Email" required>
+                <input type="text" name="product_name" placeholder="Product Name" required>
+                <input type="number" name="quantity" placeholder="Quantity" required>
+                <select name="status" required>
+                    <option value="" disabled selected>Select Status</option>
+                    <option value="pending">Pending</option>
+                    <option value="processing">Processing</option>
+                    <option value="completed">Completed</option>
+                </select>
+                <button type="submit">Add Order</button>
+            </form> -->
+        <!-- </div> -->
+
+        <h2>Order List</h2>
+        <ul class="order-list" id="order-list">
+            <!-- Order items will be added dynamically here -->
+        </ul>
+    </div>
+
+    <script>
+        // Dummy order data (replace with actual data from backend)
+        const orders = [
+            { id: 1, customer_name: "John Doe", customer_email: "john@example.com", product_name: "Vincent Chase", quantity: 2, status: "pending" },
+            { id: 2, customer_name: "Jane Smith", customer_email: "jane@example.com", product_name: "Sunglasses", quantity: 1, status: "processing" },
+            { id: 3, customer_name: "Alice Johnson", customer_email: "alice@example.com", product_name: "Vincent Chase", quantity: 5, status: "completed" }
+        ];
+
+        // Function to render order list
+        function renderOrderList() {
+            const orderList = document.getElementById("order-list");
+            orderList.innerHTML = "";
+
+            orders.forEach(order => {
+                const li = document.createElement("li");
+                li.innerHTML = `
+                    <div class="order-info">
+                        <h3>${order.customer_name}</h3>
+                        <p>Email: ${order.customer_email}</p>
+                        <p>Product: ${order.product_name}</p>
+                        <p>Quantity: ${order.quantity}</p>
+                        <p>Status: ${order.status}</p>
+                    </div>
+                    <div class="order-actions">
+                        <button onclick="editOrder(${order.id})">Edit</button>
+                        <button onclick="removeOrder(${order.id})">Delete</button>
+                    </div>
+                `;
+                orderList.appendChild(li);
+            });
+        }
+
+        // Function to add a new order
+        function addOrder(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            const orderData = Object.fromEntries(formData.entries());
+            orderData.id = orders.length + 1; // Generate unique ID (replace with backend ID generation)
+            orders.push(orderData);
+            renderOrderList();
+            form.reset();
+        }
+
+        // Function to remove an order
+        function removeOrder(orderId) {
+            orders.splice(orderId - 1, 1); // Assuming ID is 1-based index
+            renderOrderList();
+        }
+
+        // Initialize order list
+        renderOrderList();
+
+        // Add event listener to form
+        document.getElementById("add-order-form").addEventListener("submit", addOrder);
+    </script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management - EYEWEAR</title>
+    <link rel="stylesheet" href="admin_style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Product category</h1>
+    </header>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <ul>
+            <li><a href="admin_dashboard.html">Dashboard</a></li>
+            <li><a href="admin_product.html">Products</a></li>
+            <li><a href="admin_order.html">Orders</a></li>
+            <li><a href="admin_customer.html">Customers</a></li>
+            <li><a href="admin_inventory.html">inventory</a></li>
+            <li><a href="admin_analysis.html">Analytics</a></li>
+            <!-- <li><a href="#">Settings</a></li> -->
+            <li><a href="admin login.html">Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+        <div class="product-form">
+            <h2>Add New Product</h2>
+            <form id="add-product-form">
+                <input type="text" name="name" placeholder="Product Name" required>
+                <input type="number" name="price" placeholder="Price" required>
+                <textarea name="description" rows="4" placeholder="Description" required></textarea>
+                <select name="category" required>
+                    <option value="" disabled selected>Select Category</option>
+                    <option value="sunglasses">Sunglasses</option>
+                    <option value="eyeglasses">Eyeglasses</option>
+                    <!-- <option value="contact-lenses">Contact Lenses</option> -->
+                </select>
+                <input type="file" name="image" accept="image/*" required>
+                <button type="submit">Add Product</button>
+            </form>
+        </div>
+
+        <h2>Product List</h2>
+        <ul class="product-list" id="product-list">
+            <!-- Product items will be added dynamically here -->
+        </ul>
+    </div>
+    
+    <script>
+        // Dummy product data (replace with actual data from backend)
+        const products = [
+            { id: 1, name: "Vincent Chase", price: 199, category: "glasses", image: "https://static5.lenskart.com/media/catalog/product/pro/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//j/i/black-full-rim-aviator-john-jacobs-tr-flex-jj-e14418-c1-eyeglasses_g_7226_04_25_23.jpg" },
+            { id: 2, name: "Huster", price: 199, category: "sunglasses", image: "https://static5.lenskart.com/media/catalog/product/pro/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//j/o/john-jacobs-jj-s10242-light-sky-blue-c2-wayfarer-sunglasses_john-jacobs-jj-s10242-light-sky-blue-c2-wayfarer-sunglasses_blue-c2-wayfarer-sungla.jpg" },
+            { id: 3, name: "Vincent Chase", price: 199, category: "glasses", image: "https://static5.lenskart.com/media/catalog/product/pro/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//v/i/vincent-chase-vc-e16696-c1-eyeglasses_img_9055_image_pla_04_01_2024.jpg" }
+        ];
+
+        // Function to render product list
+        function renderProductList() {
+            const productList = document.getElementById("product-list");
+            productList.innerHTML = "";
+
+            products.forEach(product => {
+                const li = document.createElement("li");
+                li.innerHTML = `
+                    <div>
+                        <img src="${product.image}" alt="${product.name}" style="max-width: 100px;">
+                        <strong>${product.name}</strong>
+                        <p>₹${product.price}</p>
+                        <p>${product.category}</p>
+                    </div>
+                    <div class="actions">
+                        <button onclick="editProduct(${product.id})">Edit</button>
+                        <button onclick="removeProduct(${product.id})">Delete</button>
+                    </div>
+                `;
+                productList.appendChild(li);
+            });
+        }
+
+        // Function to add a new product
+        function addProduct(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            const productData = Object.fromEntries(formData.entries());
+            productData.id = products.length + 1; // Generate unique ID (replace with backend ID generation)
+            // For demo, randomly generate image name
+            productData.image = "product" + Math.floor(Math.random() * 1000) + ".jpg";
+            products.push(productData);
+            renderProductList();
+            form.reset();
+        }
+
+        // Function to remove a product
+        function removeProduct(productId) {
+            products.splice(productId - 1, 1); // Assuming ID is 1-based index
+            renderProductList();
+        }
+
+        // Initialize product list
+        renderProductList();
+
+        // Add event listener to form
+        document.getElementById("add-product-form").addEventListener("submit", addProduct);
+    </script>
+</body>
+</html>
